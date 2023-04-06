@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name = 'lol';
   elo = "elo";
+
+  onUpdateInputValue(event:any){
+    this.name = (<HTMLInputElement>event.target).value;
+    console.log();
+  }
 }

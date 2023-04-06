@@ -2,8 +2,18 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h3>the server component</h3>
+      <h3 [innerText]="innertextExample"
+      ></h3>
       <h4>My server:{{serverID}} server stautus: {{condition ? 'true':'false'}}</h4>
     </div>
-  </div>
+
+    <button class="btn btn-success btn-lg btn-rounded btn btn-primary smooth-transition"
+    [disabled] ="!condition"
+    (click)="onClickButton()"
+    >Add server</button>
+    <div>
+      <img src="https://icons.llama.fi/cantoswap.png" alt="A beautiful landscape" class="img-fluid" height="{{height}}">
+    </div>
+    </div>
+
 </div>
