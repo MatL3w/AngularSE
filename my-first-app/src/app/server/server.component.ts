@@ -3,7 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
-
+  styles:[`
+    .online{
+      color:red;
+    }
+  `]
 })
 export class ServerComponent {
   width= 200;
@@ -13,6 +17,7 @@ export class ServerComponent {
   serverStatus: string = 'offline';
   condition = false;
   color = 'FFFFFF';
+  token='';
   constructor() {
 
     setInterval(() => {
@@ -41,7 +46,7 @@ export class ServerComponent {
   return color;
   }
   async fetchData(){
-        await fetch('https://localhost:3000/signin', {
+        await fetch('http://localhost:3000/signin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -50,6 +55,7 @@ export class ServerComponent {
             email: 'mati@vp.pl',
             password: 'strongPassword',
           }),
-        }).then(res=>console.log(res));
+        }).then(res=>res.json())
+        .then(res => this.token = res.token);
   }
 }
