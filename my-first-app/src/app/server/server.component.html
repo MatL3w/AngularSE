@@ -26,3 +26,14 @@
 <p [ngStyle]="{background: color}"> lol</p>
 <button (click)="fetchData()">fetch</button>
 
+
+<form action="/search" method="GET">
+  <input type="text" name="q" placeholder="Search..." onkeyup="showSuggestions(this.value)">
+  <div id="suggestions">
+    <ul>
+      <li>lol</li>
+      <li>lol1</li>
+    </ul>
+  </div>
+  <button type="submit">Search</button>
+</form>
