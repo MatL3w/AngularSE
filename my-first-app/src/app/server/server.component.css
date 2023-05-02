@@ -1,3 +1,6 @@
+hr{
+  border-top: 3px solid black;
+}
 .sub-container{
     width: 80%; /* Set the width of the div */
   height: 10%;

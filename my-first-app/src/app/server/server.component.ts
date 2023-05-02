@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./server.component.css'],
 })
 export class ServerComponent {
-
+  variableToBindNr1:string ='';
   numberOfExchangesTable: number = 0;
   maxNumberOfExchangesTable: string = '';
   informationAboutExchanges: string = '';
-  
+
   constructor() {}
   async onVariableChange(newValue: any) {
     const headers = new Headers();
