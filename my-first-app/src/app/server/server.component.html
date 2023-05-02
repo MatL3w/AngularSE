@@ -1,15 +1,13 @@
 
 <div class="container">
   <div class="sub-container">
-    <p class="index-paragraph">Here you have a ping to coingecko:</p>
-    <input type="number" [(ngModel)]="numberOfDayFearnadGreedIndex" class="index-input" (ngModelChange)="onVariableChange($event)" min="0" max="50">
+    <p class="index-paragraph">Here you have Binance open API with cryptcurrency pairs(Max Number:{{maxNumberOfExchangesTable}}):</p>
+    <input type="number" [(ngModel)]="numberOfExchangesTable" class="index-input" (ngModelChange)="onVariableChange($event)" min="0" max={{maxNumberOfExchangesTable}}>
     <p class="index-paragraph"> Here output:</p>
     <div>
-      <p [innerText]=dataFearnadGreedIndex class="index-textparagraph"></p>
+      <p [innerText]=informationAboutExchanges class="index-textparagraph"></p>
     </div>
   </div>
-
-
 
 <hr>
 <p  [innerText]=token></p>

@@ -10,13 +10,15 @@ export class ServerComponent {
   width = 200;
   height = 200;
   serverID: number = 10;
-  numberOfDayFearnadGreedIndex: number = 0;
-  dataFearnadGreedIndex='';
+  numberOfExchangesTable: number = 0;
+  maxNumberOfExchangesTable: string = '';
+
+  informationAboutExchanges = '';
   innertextExample = 'text inserted in elements';
   serverStatus: string = 'offline';
   condition = false;
   color = 'FFFFFF';
-  token = '';
+  token = 'q';
 
   constructor() {
     setInterval(() => {
@@ -58,16 +60,18 @@ export class ServerComponent {
       .then((res) => res.json())
       .then((res) => (this.token = res.token));
   }
- async onVariableChange(newValue: any){
-      const headers = new Headers();
-      headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
-      headers.append("Content-Type", "application/json");
-    await fetch('https://api.coingecko.com/api/v3/ping', {
+  async onVariableChange(newValue: any) {
+    const headers = new Headers();
+    // headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
+    // headers.append('Content-Type', 'application/json');
+    await fetch('https://data.binance.com/api/v3/ticker/24hr', {
       method: 'GET',
       headers: headers,
-    }).then((res) => res.json())
-    .then(res=>{
-      this.dataFearnadGreedIndex=JSON.stringify(res);
-    });
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.maxNumberOfExchangesTable = (res.length-1).toString();
+        this.informationAboutExchanges = JSON.stringify(res[this.numberOfExchangesTable]);
+      });
   }
 }
