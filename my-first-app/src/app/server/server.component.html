@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class=".container-fluid pt-5">
   <div class="sub-container">
     <p class="index-paragraph">Here you have Binance open API with cryptcurrency pairs(Max Number:{{maxNumberOfExchangesTable}}):</p>
     <input type="number" [(ngModel)]="numberOfExchangesTable" class="index-input" (ngModelChange)="onVariableChange($event)" min="0" max={{maxNumberOfExchangesTable}}>
@@ -9,7 +9,10 @@
   </div>
 </div>
 <hr>
-<p>below input presents working of ngmodel directive</p>
-<input type="text" [(ngModel)]="variableToBindNr1">
-<p>insertet text from above paragraph: {{variableToBindNr1}}</p>
+  <div class="container-fluid p-5 my-5 ">
+    <p>below input presents working of ngmodel directive</p>
+    <input type="text" [(ngModel)]="variableToBindNr1">
+    <p>insertet text from above paragraph: {{variableToBindNr1}}</p>
+  </div>
+
 <hr>

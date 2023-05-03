@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,14 +11,13 @@ export class ServerComponent {
   maxNumberOfExchangesTable: string = '';
   informationAboutExchanges: string = '';
 
-  constructor() {}
+  constructor() {
+
+  }
   async onVariableChange(newValue: any) {
     const headers = new Headers();
-    // headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
-    // headers.append('Content-Type', 'application/json');
     await fetch('https://data.binance.com/api/v3/ticker/24hr', {
       method: 'GET',
-      headers: headers,
     })
       .then((res) => res.json())
       .then((res) => {

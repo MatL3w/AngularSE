@@ -26,5 +26,5 @@ hr{
   width: 25vw;
   margin: 0;
   resize: inherit;
-  overflow: scroll;
+  overflow: auto;
 }
