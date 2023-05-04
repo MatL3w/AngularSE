@@ -1,8 +1,8 @@
-hr{
+/* hr{
   border-top: 3px solid black;
 }
 .sub-container{
-    width: 80%; /* Set the width of the div */
+    width: 80%;
   height: 10%;
   margin-top:2%;
   margin-bottom:2%;
@@ -27,4 +27,4 @@ hr{
   margin: 0;
   resize: inherit;
   overflow: auto;
-}
+} */

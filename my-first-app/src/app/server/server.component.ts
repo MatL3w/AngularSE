@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ServerComponent {
   variableToBindNr1:string ='';
+  booleanToToggle = false;
   numberOfExchangesTable: number = 0;
   maxNumberOfExchangesTable: string = '';
   informationAboutExchanges: string = '';
@@ -26,5 +27,8 @@ export class ServerComponent {
           res[this.numberOfExchangesTable]
         );
       });
+  }
+  toggleBoolean(){
+    this.booleanToToggle = !this.booleanToToggle;
   }
 }

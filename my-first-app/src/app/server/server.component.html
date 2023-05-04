@@ -1,17 +1,32 @@
 
-<div class=".container-fluid pt-5">
-  <div class="sub-container">
-    <p class="index-paragraph">Here you have Binance open API with cryptcurrency pairs(Max Number:{{maxNumberOfExchangesTable}}):</p>
-    <input type="number" [(ngModel)]="numberOfExchangesTable" class="index-input" (ngModelChange)="onVariableChange($event)" min="0" max={{maxNumberOfExchangesTable}}>
-    <p class="index-paragraph"> Here output:</p>
-    <div>
-      <p [innerText]=informationAboutExchanges class="index-textparagraph"></p>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p >Here you have Binance open API with cryptcurrency pairs(Max Number:{{maxNumberOfExchangesTable}}):</p>
+      <input type="number" [(ngModel)]="numberOfExchangesTable" class="index-input" (ngModelChange)="onVariableChange($event)" min="0" max={{maxNumberOfExchangesTable}}>
+      <p > Here output:</p>
+      <p [innerText]=informationAboutExchanges ></p>
+    </div>
   </div>
 </div>
 <hr>
-  <div class="container-fluid p-5 my-5 ">
-    <p>below input presents working of ngmodel directive</p>
-    <input type="text" [(ngModel)]="variableToBindNr1">
-    <p>insertet text from above paragraph: {{variableToBindNr1}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p>below input presents working of ngmodel directive</p>
+      <input type="text" [(ngModel)]="variableToBindNr1">
+      <p>insertet text from above paragraph: {{variableToBindNr1}}</p>
+      </div>
+    </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="toggleBoolean()">Toggle</button>
+      <button class="btn btn-primary" [disabled]="booleanToToggle">Button to Disable</button>
+    </div>
   </div>
+</div>
 <hr>
