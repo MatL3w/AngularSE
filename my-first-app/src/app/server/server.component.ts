@@ -6,15 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./server.component.css'],
 })
 export class ServerComponent {
-  variableToBindNr1:string ='';
+  variableToBindNr1: string = '';
   booleanToToggle = false;
+  booleanToToggleUsingDirective = false;
   numberOfExchangesTable: number = 0;
   maxNumberOfExchangesTable: string = '';
   informationAboutExchanges: string = '';
 
-  constructor() {
-
-  }
+  constructor() {}
   async onVariableChange(newValue: any) {
     const headers = new Headers();
     await fetch('https://data.binance.com/api/v3/ticker/24hr', {
@@ -28,7 +27,10 @@ export class ServerComponent {
         );
       });
   }
-  toggleBoolean(){
+  toggleBoolean() {
     this.booleanToToggle = !this.booleanToToggle;
+  }
+  toggleBooleanDirective() {
+    this.booleanToToggleUsingDirective = !this.booleanToToggleUsingDirective;
   }
 }
