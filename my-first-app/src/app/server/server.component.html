@@ -40,7 +40,15 @@
       <ng-template #noButton>
         <button  class="btn btn-primary">Button to Show</button>
       </ng-template>
-
     </div>
   </div>
 </div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p>Dynamically change style with ngStyle</p>
+      <button class="btn btn-primary" (click)="changeOpacity()">Change</button>
+      <p [ngStyle]="{opacity: opacity}">paragraph with changed opacity</p>
+    </div>
+  </div>

@@ -9,6 +9,7 @@ export class ServerComponent {
   variableToBindNr1: string = '';
   booleanToToggle = false;
   booleanToToggleUsingDirective = false;
+  opacity = 0.5;
   numberOfExchangesTable: number = 0;
   maxNumberOfExchangesTable: string = '';
   informationAboutExchanges: string = '';
@@ -32,5 +33,8 @@ export class ServerComponent {
   }
   toggleBooleanDirective() {
     this.booleanToToggleUsingDirective = !this.booleanToToggleUsingDirective;
+  }
+  changeOpacity(){
+    this.opacity = Math.random();
   }
 }
