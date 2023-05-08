@@ -13,6 +13,8 @@ export class ServerComponent {
   numberOfExchangesTable: number = 0;
   maxNumberOfExchangesTable: string = '';
   informationAboutExchanges: string = '';
+  ngForCounter:number = 0;
+  ngForCounterArray: Array<any>=[];
 
   constructor() {}
   async onVariableChange(newValue: any) {
@@ -34,7 +36,10 @@ export class ServerComponent {
   toggleBooleanDirective() {
     this.booleanToToggleUsingDirective = !this.booleanToToggleUsingDirective;
   }
-  changeOpacity(){
+  changeOpacity() {
     this.opacity = Math.random();
+  }
+  onNgForCounterChange(event) {
+    this.ngForCounterArray = new Array(this.ngForCounter).fill(0);
   }
 }

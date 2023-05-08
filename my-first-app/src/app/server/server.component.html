@@ -52,3 +52,13 @@
       <p [ngStyle]="{opacity: opacity}">paragraph with changed opacity</p>
     </div>
   </div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p>below input presents working of ngFor directive</p>
+      <input type="number" [(ngModel)]="ngForCounter" (ngModelChange)="onNgForCounterChange($event)">
+      <p *ngFor="let i of ngForCounterArray">generated paragraph</p>
+      </div>
+    </div>
+</div>
