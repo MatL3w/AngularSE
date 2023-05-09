@@ -1,39 +1,23 @@
 
 <hr>
-<div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-4">
       <p >Here you have Binance open API with cryptcurrency pairs(Max Number:{{maxNumberOfExchangesTable}}):</p>
-      <input type="number" [(ngModel)]="numberOfExchangesTable" class="index-input" (ngModelChange)="onVariableChange($event)" min="0" max={{maxNumberOfExchangesTable}}>
+      <input type="number" [(ngModel)]="numberOfExchangesTable" (ngModelChange)="onVariableChange($event)" min="0" max={{maxNumberOfExchangesTable}}>
       <p > Here output:</p>
-      <p [innerText]=informationAboutExchanges ></p>
+      <p class="text-truncate" [innerText]=informationAboutExchanges style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></p>
     </div>
-  </div>
-</div>
-<hr>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-4">
       <p>below input presents working of ngmodel directive</p>
       <input type="text" [(ngModel)]="variableToBindNr1">
-      <p>inserted text from above paragraph: {{variableToBindNr1}}</p>
-      </div>
+      <p class="text-truncate" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">inserted text from above paragraph: {{variableToBindNr1}}</p>
     </div>
-</div>
-<hr>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-4">
       <p>Event Binding (Click)</p>
       <button class="btn btn-primary" (click)="toggleBoolean()">Toggle</button>
       <button class="btn btn-primary" [disabled]="booleanToToggle">Button to Disable</button>
     </div>
-  </div>
-</div>
-<hr>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-4">
       <p>Cilck button to toggle boolean using in directive</p>
       <button class="btn btn-primary" (click)="toggleBooleanDirective()">Toggle</button>
       <button *ngIf="booleanToToggleUsingDirective" class="btn btn-primary">Button to Show</button>
@@ -41,24 +25,15 @@
         <button  class="btn btn-primary">Button to Show</button>
       </ng-template>
     </div>
-  </div>
-</div>
-<hr>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-4">
       <p>Dynamically change style with ngStyle</p>
       <button class="btn btn-primary" (click)="changeOpacity()">Change</button>
       <p [ngStyle]="{opacity: opacity}">paragraph with changed opacity</p>
-    </div>
   </div>
-<hr>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+      <div class="col-md-4">
       <p>below input presents working of ngFor directive</p>
       <input type="number" [(ngModel)]="ngForCounter" (ngModelChange)="onNgForCounterChange($event)">
       <p *ngFor="let i of ngForCounterArray">generated paragraph</p>
-      </div>
-    </div>
+  </div>
+
 </div>
