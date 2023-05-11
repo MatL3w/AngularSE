@@ -1,4 +1,12 @@
 
 <app-link></app-link>
 <app-server></app-server>
-
+<hr>
+<p>Below is one component repeated 3 times using *ngFor directive and Input decorator</p>
+<app-sub-element1 *ngFor="let paragraph of paragraphs" [inputStringArray]="paragraph"></app-sub-element1>
+<hr>
+<P>Below input emit event to app-component</P>
+<app-sub-element2 (event1)="eventEmittedFormSubElement2($event)"></app-sub-element2>
+<P>Below paragraph consist string from above subElement's input </P>
+<p>{{textFromSubElement2}}</p>
+<hr>

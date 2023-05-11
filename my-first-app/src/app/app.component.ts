@@ -6,11 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = 'lol';
-  elo = "elo";
+  paragraphs = ['string1','string2','string3']
+  textFromSubElement2:string="";
 
-  onUpdateInputValue(event:any){
-    this.name = (<HTMLInputElement>event.target).value;
-    console.log();
+  eventEmittedFormSubElement2(text:string){
+    this.textFromSubElement2=text;
   }
 }
