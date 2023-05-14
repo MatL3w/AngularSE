@@ -16,6 +16,7 @@ export class ServerComponent {
   informationAboutExchanges: string = '';
   ngForCounter: number = 0;
   ngForCounterArray: Array<any> = [];
+  backgroundColorngClass=true;
 
   constructor() {}
   async onVariableChange(newValue: any) {
@@ -45,5 +46,8 @@ export class ServerComponent {
   }
   showInfoAboutButtonWithreference(){
     console.log(this.buttonWithReference.nativeElement);
+  }
+  toggleBackgroundColor(){
+    this.backgroundColorngClass = !this.backgroundColorngClass;
   }
 }

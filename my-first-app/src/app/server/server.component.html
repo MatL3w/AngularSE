@@ -38,5 +38,8 @@
       <div class="col-md-4">
       <button class="btn btn-primary" #buttonWithReference (click)="showInfoAboutButtonWithreference()">Click me to show my properties in console log</button>
   </div>
+      <div class="col-md-4">
+      <button class="btn btn-primary" [ngClass]="{backGroundColor: backgroundColorngClass}" (click)="toggleBackgroundColor()">Toggle background color using ngClass</button>
+  </div>
 
 </div>
