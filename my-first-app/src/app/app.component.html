@@ -10,3 +10,10 @@
 <P>Below paragraph consist string from above subElement's input </P>
 <p>{{textFromSubElement2}}</p>
 <hr>
+<input
+  type="text"
+  class="form-control"
+  #inputWithreference>
+<button class="btn-primary" (click)="useReferenceToShowText(inputWithreference)">show text and clear</button>
+<p>Below will be displayed text from above input, but to perform this will be used reference system</p>
+<p>{{textForInputWithReference}}</p>

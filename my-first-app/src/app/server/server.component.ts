@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-server',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./server.component.css'],
 })
 export class ServerComponent {
+  @ViewChild('buttonWithReference') buttonWithReference:ElementRef;
   variableToBindNr1: string = '';
   booleanToToggle = false;
   booleanToToggleUsingDirective = false;
@@ -13,8 +14,8 @@ export class ServerComponent {
   numberOfExchangesTable: number = 0;
   maxNumberOfExchangesTable: string = '';
   informationAboutExchanges: string = '';
-  ngForCounter:number = 0;
-  ngForCounterArray: Array<any>=[];
+  ngForCounter: number = 0;
+  ngForCounterArray: Array<any> = [];
 
   constructor() {}
   async onVariableChange(newValue: any) {
@@ -41,5 +42,8 @@ export class ServerComponent {
   }
   onNgForCounterChange(event) {
     this.ngForCounterArray = new Array(this.ngForCounter).fill(0);
+  }
+  showInfoAboutButtonWithreference(){
+    console.log(this.buttonWithReference.nativeElement);
   }
 }
