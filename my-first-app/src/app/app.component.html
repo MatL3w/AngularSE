@@ -3,10 +3,12 @@
 <app-server></app-server>
 <hr>
 <p>Below is one component repeated 3 times using *ngFor directive and Input decorator</p>
-<app-sub-element1 *ngFor="let paragraph of paragraphs" [inputStringArray]="paragraph"></app-sub-element1>
+<app-sub-element1 *ngFor="let paragraph of paragraphs" [inputStringArray]="paragraph" #subElement1></app-sub-element1>
 <hr>
 <P>Below input emit event to app-component</P>
-<app-sub-element2 (event1)="eventEmittedFormSubElement2($event)"></app-sub-element2>
+<app-sub-element2 (event1)="eventEmittedFormSubElement2($event)" [inputValue] ="inputValueForElement2">
+  <p>Paragraph sent by direvtive ngContent</p>
+</app-sub-element2>
 <P>Below paragraph consist string from above subElement's input </P>
 <p>{{textFromSubElement2}}</p>
 <hr>
@@ -17,3 +19,6 @@
 <button class="btn-primary" (click)="useReferenceToShowText(inputWithreference)">show text and clear</button>
 <p>Below will be displayed text from above input, but to perform this will be used reference system</p>
 <p>{{textForInputWithReference}}</p>
+<hr>
+ <button class="btn btn-primary" (click)="showInfoAboutSubEle1()">Click me to show subelement1 properties in console log</button>
+<button class="btn btn-primary" (click)="changeInputValueForElement2()">Change Input Value for Element2</button>

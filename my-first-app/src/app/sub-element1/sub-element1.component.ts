@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sub-element1',
@@ -8,5 +8,7 @@ import { Component,Input } from '@angular/core';
 export class SubElement1Component {
   @Input('inputStringArray') paragraph: string;
   constructor(){};
-
+  ngOnChanges(){
+    console.log("sub-element1 input property changed");
+  }
 }
