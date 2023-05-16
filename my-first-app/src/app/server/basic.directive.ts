@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit } from 
 export class Basic implements OnInit {
   @HostBinding('style.backgroundColor') backgroundColor: string;
   @Input() defaultColor: string = 'transparent';
-  @Input() highlightColor: string = 'green';
+  @Input('appBasic') highlightColor: string = 'green';
   constructor(private elementRef: ElementRef) {}
   ngOnInit(): void {}
 
