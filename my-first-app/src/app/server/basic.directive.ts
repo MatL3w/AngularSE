@@ -1,14 +1,19 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
-  selector:'[appBasic]',
+  selector: '[appBasic]',
 })
+export class Basic implements OnInit {
+  @HostBinding('style.backgroundColor') backgroundColor: string;
+  @Input() defaultColor: string = 'transparent';
+  @Input() highlightColor: string = 'green';
+  constructor(private elementRef: ElementRef) {}
+  ngOnInit(): void {}
 
-export class Basic implements OnInit{
-  constructor(private elementRef:ElementRef){
-
+  @HostListener('mouseenter') mouseOver(eventData: Event) {
+    this.backgroundColor = this.highlightColor;
   }
-  ngOnInit(): void {
-      this.elementRef.nativeElement.style.backgroundColor = 'green';
+  @HostListener('mouseleave') mouseLeave(eventData: Event) {
+    this.backgroundColor = this.defaultColor;
   }
 }
