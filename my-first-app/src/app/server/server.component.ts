@@ -1,9 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-
+import { LoggingService } from '../logging.service';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
   styleUrls: ['./server.component.css'],
+  providers:[LoggingService],
 })
 export class ServerComponent {
   @ViewChild('buttonWithReference') buttonWithReference:ElementRef;
@@ -19,7 +20,7 @@ export class ServerComponent {
   backgroundColorngClass=true;
   valueForNgSwitch = 0;
 
-  constructor() {}
+  constructor(private loggingService:LoggingService) {}
   async onVariableChange(newValue: any) {
     const headers = new Headers();
     await fetch('https://data.binance.com/api/v3/ticker/24hr', {

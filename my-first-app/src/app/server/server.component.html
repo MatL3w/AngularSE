@@ -33,7 +33,7 @@
       <div class="col-md-4">
       <p>below input presents working of ngFor directive</p>
       <input type="number" [(ngModel)]="ngForCounter" (ngModelChange)="onNgForCounterChange($event)">
-      <p *ngFor="let i of ngForCounterArray">generated paragraph</p>
+      <p *ngFor="let i of ngForCounterArray">generated paragraph </p>
   </div>
       <div class="col-md-4">
       <button class="btn btn-primary" #buttonWithReference (click)="showInfoAboutButtonWithreference()">Click me to show my properties in console log</button>
