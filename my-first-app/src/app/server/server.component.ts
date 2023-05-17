@@ -36,23 +36,34 @@ export class ServerComponent {
   }
   toggleBoolean() {
     this.booleanToToggle = !this.booleanToToggle;
+    this.loggingService.logMessage('invoked toggleBoolean()');
   }
   toggleBooleanDirective() {
     this.booleanToToggleUsingDirective = !this.booleanToToggleUsingDirective;
+    this.loggingService.logMessage('invoked toggleBooleanDirective()');
   }
   changeOpacity() {
     this.opacity = Math.random();
+    this.loggingService.logMessage('invoked changeOpacity()');
   }
   onNgForCounterChange(event) {
     this.ngForCounterArray = new Array(this.ngForCounter).fill(0);
+    this.loggingService.logMessage('invoked onNgForCounterChange(event)');
   }
   showInfoAboutButtonWithreference(){
     console.log(this.buttonWithReference.nativeElement);
+    this.loggingService.logMessage(
+      'invoked showInfoAboutButtonWithreference()'
+    );
   }
   toggleBackgroundColor(){
     this.backgroundColorngClass = !this.backgroundColorngClass;
+    this.loggingService.logMessage('invoked toggleBackgroundColor()');
   }
   changeValueForngSwitch(value:number){
     this.valueForNgSwitch = value;
+    this.loggingService.logMessage(
+      'invoked changeValueForngSwitch(value:number)'
+    );
   }
 }
