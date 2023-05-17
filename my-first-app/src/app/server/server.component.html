@@ -20,9 +20,9 @@
     <div class="col-md-4">
       <p>Cilck button to toggle boolean using in directive</p>
       <button class="btn btn-primary" (click)="toggleBooleanDirective()">Toggle</button>
-      <button *ngIf="booleanToToggleUsingDirective" class="btn btn-primary">Button to Show</button>
-      <ng-template #noButton>
-        <button  class="btn btn-primary">Button to Show</button>
+      <button *ngIf="booleanToToggleUsingDirective" class="btn btn-primary">Button to Show A</button>
+      <ng-template [structural]="booleanToToggleUsingDirective">
+        <button  class="btn btn-primary">Button to Show B</button>
       </ng-template>
     </div>
     <div class="col-md-4">
@@ -43,6 +43,16 @@
   </div>
         <div class="col-md-4">
       <p [appBasic]="'yellow'">This paragraph using own Directive</p>
+  </div>
+  <div [ngSwitch]="valueForNgSwitch" class="col-md-4">
+      <p >This below we using ngSwitch</p>
+      <button class="btn btn-primary" (click)="changeValueForngSwitch(1)">1</button>
+      <button class="btn btn-primary" (click)="changeValueForngSwitch(2)">2</button>
+      <button class="btn btn-primary" (click)="changeValueForngSwitch(3)">3</button>
+      <p *ngSwitchCase="1">chose 1</p>
+      <p *ngSwitchCase="2">chose 2</p>
+      <p *ngSwitchCase="3">chose 1</p>
+      <p *ngSwitchDefault>Value is default</p>
   </div>
 
 </div>

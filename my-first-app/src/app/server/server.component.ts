@@ -17,6 +17,7 @@ export class ServerComponent {
   ngForCounter: number = 0;
   ngForCounterArray: Array<any> = [];
   backgroundColorngClass=true;
+  valueForNgSwitch = 0;
 
   constructor() {}
   async onVariableChange(newValue: any) {
@@ -49,5 +50,8 @@ export class ServerComponent {
   }
   toggleBackgroundColor(){
     this.backgroundColorngClass = !this.backgroundColorngClass;
+  }
+  changeValueForngSwitch(value:number){
+    this.valueForNgSwitch = value;
   }
 }
