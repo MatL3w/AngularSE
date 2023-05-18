@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from "@angular/forms";
 
@@ -9,10 +9,20 @@ import { SubElement1Component } from './sub-element1/sub-element1.component';
 import { SubElement2Component } from './sub-element2/sub-element2.component';
 import {Basic} from './server/basic.directive'
 import { Structural } from './server/structural.directive';
+import { LoggingService } from './logging.service';
+import { ServiceToInject } from './serviceToInject.service';
 @NgModule({
-  declarations: [AppComponent, ServerComponent, LinkComponent, SubElement1Component, SubElement2Component,Basic,Structural],
+  declarations: [
+    AppComponent,
+    ServerComponent,
+    LinkComponent,
+    SubElement1Component,
+    SubElement2Component,
+    Basic,
+    Structural,
+  ],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  providers: [LoggingService, ServiceToInject],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

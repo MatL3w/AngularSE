@@ -1,10 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LoggingService } from '../logging.service';
+import { ServiceToInject } from '../serviceToInject.service';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
   styleUrls: ['./server.component.css'],
-  providers:[LoggingService],
+  // providers:[LoggingService,ServiceToInject],
 })
 export class ServerComponent {
   @ViewChild('buttonWithReference') buttonWithReference:ElementRef;
@@ -37,6 +38,7 @@ export class ServerComponent {
   toggleBoolean() {
     this.booleanToToggle = !this.booleanToToggle;
     this.loggingService.logMessage('invoked toggleBoolean()');
+    console.log(this.loggingService.num);
   }
   toggleBooleanDirective() {
     this.booleanToToggleUsingDirective = !this.booleanToToggleUsingDirective;
