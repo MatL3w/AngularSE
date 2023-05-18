@@ -1,6 +1,7 @@
 
 <app-link></app-link>
 <app-server></app-server>
+<router-outlet></router-outlet>
 <hr>
 <p>Below is one component repeated 3 times using *ngFor directive and Input decorator</p>
 <app-sub-element1 *ngFor="let paragraph of paragraphs" [inputStringArray]="paragraph" #subElement1></app-sub-element1>

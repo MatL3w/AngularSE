@@ -11,6 +11,12 @@ import {Basic} from './server/basic.directive'
 import { Structural } from './server/structural.directive';
 import { LoggingService } from './logging.service';
 import { ServiceToInject } from './serviceToInject.service';
+import { View1 } from './view1/view1.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'view1', component: View1 },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,8 +26,9 @@ import { ServiceToInject } from './serviceToInject.service';
     SubElement2Component,
     Basic,
     Structural,
+    View1,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule,RouterModule.forRoot(appRoutes)],
   providers: [LoggingService, ServiceToInject],
   bootstrap: [AppComponent],
 })
