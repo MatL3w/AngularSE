@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit} from '@angular/core';
 import { LoggingService } from './logging.service';
 import { ServiceToInject } from './serviceToInject.service';
 
@@ -6,7 +6,7 @@ import { ServiceToInject } from './serviceToInject.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ServiceToInject],
+  // providers: [ServiceToInject],
 })
 export class AppComponent {
   @ViewChild('subElement1') subElement1;
@@ -16,6 +16,11 @@ export class AppComponent {
   inputValueForElement2: string = '';
   constructor(private loggingService: LoggingService) {
     this.loggingService.num=2;
+  }
+  ngOnInit(){
+    this.loggingService.check.subscribe(num=>{
+      console.log(num);
+    })
   }
 
   eventEmittedFormSubElement2(text: string) {
