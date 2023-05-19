@@ -54,5 +54,11 @@
       <p *ngSwitchCase="3">chose 3</p>
       <p *ngSwitchDefault>Value is default</p>
   </div>
+  <div class="col-md-4">
+      <button class="btn btn-primary" (click)="changeURLafterClick('/view1')">Change the URL to "/view1" after click (1 sec delay)</button>
+  </div>
+    <div class="col-md-4">
+      <button class="btn btn-primary" (click)="changeURLafterClick('/')">Change the URL to "/" after click (1 sec delay)</button>
+  </div>
 
 </div>

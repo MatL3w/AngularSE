@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LoggingService } from '../logging.service';
 import { ServiceToInject } from '../serviceToInject.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
@@ -21,7 +22,7 @@ export class ServerComponent {
   backgroundColorngClass=true;
   valueForNgSwitch = 0;
 
-  constructor(private loggingService:LoggingService) {}
+  constructor(private loggingService:LoggingService,private router:Router) {}
   async onVariableChange(newValue: any) {
     const headers = new Headers();
     await fetch('https://data.binance.com/api/v3/ticker/24hr', {
@@ -67,5 +68,10 @@ export class ServerComponent {
     this.loggingService.logMessage(
       'invoked changeValueForngSwitch(value:number)'
     );
+  }
+  changeURLafterClick(str:string){
+    setTimeout(()=>{
+      this.router.navigate([str]);
+    },1000)
   }
 }
