@@ -10,5 +10,8 @@ export class View1 {
     constructor(private route:ActivatedRoute){}
   ngOnInit(){
     console.log(this.route.snapshot.params['id']);
+    this.route.params.subscribe(params=>{
+      console.log(params['id']);
+    })
   }
 }
