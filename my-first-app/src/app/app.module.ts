@@ -17,6 +17,7 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
   { path: 'view1', component: View1 },
   { path: 'view1/:id', component: View1 },
+  { path: '**', redirectTo: '/'}
 ];
 @NgModule({
   declarations: [
