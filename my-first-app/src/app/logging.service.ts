@@ -5,6 +5,7 @@ import { ServiceToInject } from './serviceToInject.service';
 export class LoggingService {
   num=1;
   check = new EventEmitter<number>;
+  subjectEmitter = new EventEmitter<number>;
   constructor(private serviceToInject:ServiceToInject){};
   logMessage(message: string) {
     console.log(`message: ${message}`);

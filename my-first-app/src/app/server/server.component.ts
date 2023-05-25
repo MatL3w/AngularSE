@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoggingService } from '../logging.service';
 import { ServiceToInject } from '../serviceToInject.service';
 import { Router } from '@angular/router';
@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./server.component.css'],
   // providers:[LoggingService,ServiceToInject],
 })
-export class ServerComponent {
-  @ViewChild('buttonWithReference') buttonWithReference:ElementRef;
+export class ServerComponent implements OnInit {
+  @ViewChild('buttonWithReference') buttonWithReference: ElementRef;
   variableToBindNr1: string = '';
   booleanToToggle = false;
   booleanToToggleUsingDirective = false;
@@ -19,10 +19,18 @@ export class ServerComponent {
   informationAboutExchanges: string = '';
   ngForCounter: number = 0;
   ngForCounterArray: Array<any> = [];
-  backgroundColorngClass=true;
+  backgroundColorngClass = true;
   valueForNgSwitch = 0;
+  subjectRandomValue = 0;
 
-  constructor(private loggingService:LoggingService,private router:Router) {}
+  constructor(private loggingService: LoggingService, private router: Router) {}
+
+  ngOnInit(): void {
+      this.loggingService.subjectEmitter.subscribe(number=>{
+        this.subjectRandomValue = number;
+      })
+  }
+
   async onVariableChange(newValue: any) {
     const headers = new Headers();
     await fetch('https://data.binance.com/api/v3/ticker/24hr', {
@@ -53,25 +61,28 @@ export class ServerComponent {
     this.ngForCounterArray = new Array(this.ngForCounter).fill(0);
     this.loggingService.logMessage('invoked onNgForCounterChange(event)');
   }
-  showInfoAboutButtonWithreference(){
+  showInfoAboutButtonWithreference() {
     console.log(this.buttonWithReference.nativeElement);
     this.loggingService.logMessage(
       'invoked showInfoAboutButtonWithreference()'
     );
   }
-  toggleBackgroundColor(){
+  toggleBackgroundColor() {
     this.backgroundColorngClass = !this.backgroundColorngClass;
     this.loggingService.logMessage('invoked toggleBackgroundColor()');
   }
-  changeValueForngSwitch(value:number){
+  changeValueForngSwitch(value: number) {
     this.valueForNgSwitch = value;
     this.loggingService.logMessage(
       'invoked changeValueForngSwitch(value:number)'
     );
   }
-  changeURLafterClick(str:string){
-    setTimeout(()=>{
+  changeURLafterClick(str: string) {
+    setTimeout(() => {
       this.router.navigate([str]);
-    },1000)
+    }, 1000);
+  }
+  subjectEmit(){
+    this.loggingService.subjectEmitter.emit(Math.random());
   }
 }
