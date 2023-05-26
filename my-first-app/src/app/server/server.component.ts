@@ -84,5 +84,6 @@ export class ServerComponent implements OnInit {
   }
   subjectEmit(){
     this.loggingService.subjectEmitter.emit(Math.random());
+    this.loggingService.logMessage('subjectEmit');
   }
 }
