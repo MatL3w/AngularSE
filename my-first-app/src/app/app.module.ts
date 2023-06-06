@@ -13,6 +13,7 @@ import { LoggingService } from './logging.service';
 import { ServiceToInject } from './serviceToInject.service';
 import { View1 } from './view1/view1.component';
 import { RouterModule, Routes } from '@angular/router';
+import { Uppercase } from './server/uppercase.pipe';
 
 const appRoutes: Routes = [
   { path: 'view1', component: View1 },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     Basic,
     Structural,
     View1,
+    Uppercase,
   ],
   imports: [BrowserModule, FormsModule,RouterModule.forRoot(appRoutes)],
   providers: [LoggingService, ServiceToInject],
