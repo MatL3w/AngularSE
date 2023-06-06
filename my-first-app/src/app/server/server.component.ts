@@ -22,6 +22,7 @@ export class ServerComponent implements OnInit {
   backgroundColorngClass = true;
   valueForNgSwitch = 0;
   subjectRandomValue = 0;
+  stringToPipe = "pipe";
 
   constructor(private loggingService: LoggingService, private router: Router) {}
 
