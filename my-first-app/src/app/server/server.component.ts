@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoggingService } from '../logging.service';
 import { ServiceToInject } from '../serviceToInject.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
@@ -22,14 +23,18 @@ export class ServerComponent implements OnInit {
   backgroundColorngClass = true;
   valueForNgSwitch = 0;
   subjectRandomValue = 0;
-  stringToPipe = "pipe";
+  stringToPipe = 'pipe';
 
-  constructor(private loggingService: LoggingService, private router: Router) {}
+  constructor(
+    private loggingService: LoggingService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
-      this.loggingService.subjectEmitter.subscribe(number=>{
-        this.subjectRandomValue = number;
-      })
+    this.loggingService.subjectEmitter.subscribe((number) => {
+      this.subjectRandomValue = number;
+    });
   }
 
   async onVariableChange(newValue: any) {
@@ -83,8 +88,13 @@ export class ServerComponent implements OnInit {
       this.router.navigate([str]);
     }, 1000);
   }
-  subjectEmit(){
+  subjectEmit() {
     this.loggingService.subjectEmitter.emit(Math.random());
     this.loggingService.logMessage('subjectEmit');
   }
+  fetchData(){
+    this.http.get('https://restcountries.com/v3.1/name/poland').subscribe(res=>{
+      console.log(res);
+    });
+  };
 }
