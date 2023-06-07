@@ -24,6 +24,7 @@ export class ServerComponent implements OnInit {
   valueForNgSwitch = 0;
   subjectRandomValue = 0;
   stringToPipe = 'pipe';
+  stringforFetchedData = '';
 
   constructor(
     private loggingService: LoggingService,
@@ -94,7 +95,9 @@ export class ServerComponent implements OnInit {
   }
   fetchData(){
     this.http.get('https://restcountries.com/v3.1/name/poland').subscribe(res=>{
+      this.stringforFetchedData = res[0].altSpellings[1];
       console.log(res);
+      console.log(this.stringforFetchedData);
     });
   };
 }
