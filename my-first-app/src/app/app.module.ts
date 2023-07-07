@@ -15,6 +15,8 @@ import { View1 } from './view1/view1.component';
 import { RouterModule, Routes } from '@angular/router';
 import { Uppercase } from './server/uppercase.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertModalComponent } from './alert-modal/alert-modal.component';
+import { PlaceHolderDirective } from './shared/place-holder.directive';
 
 const appRoutes: Routes = [
   { path: 'view1', component: View1 },
@@ -32,6 +34,8 @@ const appRoutes: Routes = [
     Structural,
     View1,
     Uppercase,
+    AlertModalComponent,
+    PlaceHolderDirective,
   ],
   imports: [BrowserModule, FormsModule,RouterModule.forRoot(appRoutes),HttpClientModule],
   providers: [LoggingService, ServiceToInject],

@@ -1,5 +1,6 @@
 
 <hr>
+<ng-template appPlaceHolder></ng-template>
   <div class="row">
     <div class="col-md-4">
       <p >Here you have Binance open API with cryptcurrency pairs(Max Number:{{maxNumberOfExchangesTable}}):</p>
@@ -71,6 +72,9 @@
   <div class="col-md-4">
       <button class="btn btn-primary" (click)="fetchData()">Fetch Data</button>
       <p>value: {{stringforFetchedData | Uppercase}}</p>
+  </div>
+  <div>
+    <button class="btn btn-primary" (click)="OpenModalButton_OpenModal()">Open modal</button>
   </div>
 
 </div>

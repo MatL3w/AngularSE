@@ -1,8 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { LoggingService } from '../logging.service';
 import { ServiceToInject } from '../serviceToInject.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {AlertModalComponent} from '../alert-modal/alert-modal.component'
+import { PlaceHolderDirective } from '../shared/place-holder.directive';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
@@ -11,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServerComponent implements OnInit {
   @ViewChild('buttonWithReference') buttonWithReference: ElementRef;
+  @ViewChild(PlaceHolderDirective) alertModal: PlaceHolderDirective;
   variableToBindNr1: string = '';
   booleanToToggle = false;
   booleanToToggleUsingDirective = false;
@@ -25,16 +28,29 @@ export class ServerComponent implements OnInit {
   subjectRandomValue = 0;
   stringToPipe = 'pipe';
   stringforFetchedData = '';
+  componentRef: ComponentRef<AlertModalComponent>;
+  alertContainerRef: ViewContainerRef;
 
   constructor(
     private loggingService: LoggingService,
     private router: Router,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+  ) // private componentFactoryresolver: ComponentFactoryResolver
+  {}
 
   ngOnInit(): void {
     this.loggingService.subjectEmitter.subscribe((number) => {
       this.subjectRandomValue = number;
+    });
+
+  }
+  ngAfterViewInit(){
+    this.alertContainerRef = this.alertModal.viewContainerRef;
+    this.alertContainerRef.clear();
+    this.componentRef = this.alertContainerRef.createComponent(AlertModalComponent);
+    this.componentRef.instance.onButtonOkClick.subscribe(()=>{
+      this.componentRef.instance.onButtonOkClick.unsubscribe();
+      this.componentRef.destroy();
     });
   }
 
@@ -93,11 +109,22 @@ export class ServerComponent implements OnInit {
     this.loggingService.subjectEmitter.emit(Math.random());
     this.loggingService.logMessage('subjectEmit');
   }
-  fetchData(){
-    this.http.get('https://restcountries.com/v3.1/name/poland').subscribe(res=>{
-      this.stringforFetchedData = res[0].altSpellings[1];
-      console.log(res);
-      console.log(this.stringforFetchedData);
+  fetchData() {
+    this.http
+      .get('https://restcountries.com/v3.1/name/poland')
+      .subscribe((res) => {
+        this.stringforFetchedData = res[0].altSpellings[1];
+        console.log(res);
+        console.log(this.stringforFetchedData);
+      });
+  }
+  OpenModalButton_OpenModal() {
+    this.alertContainerRef = this.alertModal.viewContainerRef;
+    this.alertContainerRef.clear();
+    this.componentRef = this.alertContainerRef.createComponent(AlertModalComponent);
+    this.componentRef.instance.onButtonOkClick.subscribe(()=>{
+      this.componentRef.instance.onButtonOkClick.unsubscribe();
+      this.componentRef.destroy();
     });
-  };
+  }
 }
