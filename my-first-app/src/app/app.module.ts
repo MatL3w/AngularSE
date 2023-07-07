@@ -17,6 +17,7 @@ import { Uppercase } from './server/uppercase.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertModalComponent } from './alert-modal/alert-modal.component';
 import { PlaceHolderDirective } from './shared/place-holder.directive';
+import { UtilModule } from './util.module';
 
 const appRoutes: Routes = [
   { path: 'view1', component: View1 },
@@ -37,8 +38,8 @@ const appRoutes: Routes = [
     AlertModalComponent,
     PlaceHolderDirective,
   ],
-  imports: [BrowserModule, FormsModule,RouterModule.forRoot(appRoutes),HttpClientModule],
-  providers: [LoggingService, ServiceToInject],
+  imports: [BrowserModule, FormsModule,RouterModule.forRoot(appRoutes),HttpClientModule,UtilModule],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
